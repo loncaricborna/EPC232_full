@@ -1,0 +1,307 @@
+﻿<Window x:Class="EPC232.audio.gui.windows.InputSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EPC232.audio.gui.windows"
+        mc:Ignorable="d"
+        Title="Audio settings" Height="450" Width="720" Background="Black" WindowStyle="ThreeDBorderWindow" 
+        WindowState="Normal" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="LedTemplate" TargetType="Ellipse">
+            <Setter Property="Width" Value="15"/>
+            <Setter Property="Height" Value="15"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Fill" Value="Black"/>
+            <Setter Property="Stroke" Value="White"/>
+        </Style>
+        <Style x:Key="PicButtonTemplate" TargetType="Button">
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Wheat"/>
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="LightBlueButtonTemplate" TargetType="Button">
+            <Setter Property="Background" Value="LightBlue"/>
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="YellowButtonTemplate" TargetType="Button">
+            <Setter Property="Background" Value="Yellow"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="GreenButtonTemplate" TargetType="Button">
+            <Setter Property="Background" Value="Green"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="WhiteButtonTemplate" TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="BlueButtonTemplate" TargetType="Button">
+            <Setter Property="Background" Value="Blue"/>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="AudioTextBoxTemplate" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="26"/>
+        </Style>
+        <Style x:Key="AudioSliderTemplate" TargetType="Slider">
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="SmallChange" Value="1"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Orientation" Value="Vertical"/>
+            <Setter Property="Grid.Row" Value="1"/>
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Height" Value="200"/>
+            <Setter Property="Width" Value="18"/>
+        </Style>
+        <Style x:Key="BlackDataGridTemplate" TargetType="DataGrid">
+            <Setter Property="Background" Value="{x:Null}"/>
+            <!--
+            <Setter Property="AlternationCount" Value="1"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
+            -->
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <!--AUDIO SETTINGS-->
+        <Grid x:Name="GridSettings" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,24,0,10" Height="387" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.ContextMenu>
+                <ContextMenu x:Name="MenuSettings">
+                    <MenuItem x:Name="MS_S1"        Header="IN_1"      Click="MS_Click"/>
+                    <MenuItem x:Name="MS_S2"        Header="IN_2"      Click="MS_Click"/>
+                    <MenuItem x:Name="MS_S3"        Header="IN_3"      Click="MS_Click"/>
+                    <MenuItem x:Name="MS_S4"        Header="_MIC"      Click="MS_Click"/>
+                    <MenuItem x:Name="MS_S5"        Header="_GONG"     Click="MS_Click"/>
+                    <MenuItem x:Name="MS_VOL_UP"   Header="VOL _+"     Click="MI_SL_UP_Click"/>
+                    <MenuItem x:Name="MS_VOL_DN"   Header="VOL _-"     Click="MI_SL_DN_Click"/>
+                </ContextMenu>
+            </Grid.ContextMenu>
+            <!--Rectangle Fill="{x:Null}" Stroke="White" StrokeThickness="2" Height="380" VerticalAlignment="Bottom" Grid.ColumnSpan="2" /-->
+            <TextBox Text="[S]  SETTINGS"  Margin="0,0,0,353"  Style="{StaticResource AudioTextBoxTemplate}" Width="360" Height="19" Focusable="False" Grid.ColumnSpan="2"/>
+            <Button x:Name="S1"    Content="IN1"  Click="S_Click" Margin="0,0,250.408,295" Style="{StaticResource WhiteButtonTemplate}" Focusable="False"/>
+            <Button x:Name="S2"    Content="IN2"  Click="S_Click" Margin="0,0,180.408,295" Style="{StaticResource WhiteButtonTemplate}" Focusable="False"/>
+            <Button x:Name="S3"    Content="IN3"  Click="S_Click" Margin="0,0,110.408,295"  Style="{StaticResource WhiteButtonTemplate}" Focusable="False"/>
+            <Button x:Name="S4"    Content="MIC"  Click="S_Click" Margin="0,0,40.408,295" Style="{StaticResource WhiteButtonTemplate}" Focusable="False"/>
+            <Button x:Name="S5"    Content="GONG" Click="S_Click" Margin="0,0,10,295"  Style="{StaticResource WhiteButtonTemplate}" Focusable="False" Grid.ColumnSpan="2"/>
+            <CheckBox x:Name="GongEnable" Content="Enable" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" HorizontalAlignment="Right" Margin="0,0,10,273" VerticalAlignment="Bottom" Foreground="White" Width="60" Focusable="False" Grid.ColumnSpan="2"/>
+            <Canvas x:Name="SVOL" Margin="0,0,260.408,0" Height="260" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Width="60">
+                <TextBox x:Name="TVOL"  Text="----"  Style="{StaticResource AudioTextBoxTemplate}" Canvas.Left="4" Focusable="False"/>
+                <Slider x:Name="VOL"  ValueChanged="AS_ValueChanged" Maximum="13" Style="{StaticResource AudioSliderTemplate}" Canvas.Left="20" Canvas.Top="24"/>
+                <TextBox Text="Volume" Style="{StaticResource AudioTextBoxTemplate}" Canvas.Top="224" Canvas.Left="4" Focusable="False"/>
+            </Canvas>
+            <Canvas x:Name="SGAIN" Margin="0,0,200.408,0" Height="260" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Width="60">
+                <TextBox x:Name="TGAIN"  Text="----"  Style="{StaticResource AudioTextBoxTemplate}" Canvas.Left="4" Focusable="False"/>
+                <Slider x:Name="GAIN"  ValueChanged="AS_ValueChanged" Maximum="15" Style="{StaticResource AudioSliderTemplate}" Canvas.Left="20" Canvas.Top="24"/>
+                <TextBox Text="Gain" Style="{StaticResource AudioTextBoxTemplate}" Canvas.Top="224" Canvas.Left="4" Focusable="False"/>
+            </Canvas>
+            <Canvas x:Name="SBASS" Margin="0,0,140.408,0" Height="260" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Width="60">
+                <TextBox x:Name="TBASS"  Text="----"  Style="{StaticResource AudioTextBoxTemplate}" Canvas.Left="5" Focusable="False"/>
+                <Slider x:Name="BASS"  ValueChanged="AS_ValueChanged" Maximum="14" Style="{StaticResource AudioSliderTemplate}" Canvas.Left="21" Canvas.Top="24"/>
+                <TextBox Text="Bass" Style="{StaticResource AudioTextBoxTemplate}" Canvas.Top="224" Canvas.Left="5" Focusable="False"/>
+            </Canvas>
+            <Canvas x:Name="STREB" Margin="0,0,80.408,0" Height="260" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Width="60">
+                <TextBox x:Name="TTREB"  Text="----"  Style="{StaticResource AudioTextBoxTemplate}" Canvas.Left="5" Focusable="False"/>
+                <Slider x:Name="TREB"  ValueChanged="AS_ValueChanged" Maximum="14" Style="{StaticResource AudioSliderTemplate}" Canvas.Left="21" Canvas.Top="24"/>
+                <TextBox Text="Treble" Style="{StaticResource AudioTextBoxTemplate}" Canvas.Top="224" Canvas.Left="5" Focusable="False"/>
+            </Canvas>
+            <Canvas x:Name="SATTL" Margin="0,0,20.408,0" Height="260" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Width="60">
+                <TextBox x:Name="TATTL"  Text="----"  Style="{StaticResource AudioTextBoxTemplate}" Canvas.Left="5" Focusable="False"/>
+                <Slider x:Name="ATTL"  ValueChanged="AS_ValueChanged" Maximum="17" Style="{StaticResource AudioSliderTemplate}" Canvas.Left="21" Canvas.Top="24"/>
+                <TextBox Text="Att.L." Style="{StaticResource AudioTextBoxTemplate}" Canvas.Top="224" Canvas.Left="5" Focusable="False"/>
+            </Canvas>
+            <Canvas x:Name="SATTR" Height="260" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Width="60" Grid.ColumnSpan="2">
+                <TextBox x:Name="TATTR"  Text="----"  Style="{StaticResource AudioTextBoxTemplate}" Canvas.Left="5" Focusable="False"/>
+                <Slider x:Name="ATTR"  ValueChanged="AS_ValueChanged" Maximum="17" Style="{StaticResource AudioSliderTemplate}" Canvas.Left="21" Canvas.Top="24"/>
+                <TextBox Text="Att.R." Style="{StaticResource AudioTextBoxTemplate}" Canvas.Top="224" Canvas.Left="5" Focusable="False"/>
+            </Canvas>
+        </Grid>
+
+        <!--AUDIO INPUT-->
+        <Grid x:Name="GridInput" HorizontalAlignment="Right" Width="290" Height="387" Margin="0,0,10,10" VerticalAlignment="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="33*"/>
+                <RowDefinition Height="347*"/>
+            </Grid.RowDefinitions>
+            <Grid.ContextMenu>
+                <ContextMenu x:Name="MenuInput">
+                    <MenuItem x:Name="MI_I1"        Header="IN_1"        Click="MI_Click"/>
+                    <MenuItem x:Name="MI_I2"        Header="IN_2"        Click="MI_Click"/>
+                    <MenuItem x:Name="MI_I3"        Header="IN_3"        Click="MI_Click"/>
+                    <MenuItem x:Name="MI_I4"        Header="_MIC"        Click="MI_Click"/>
+                    <MenuItem x:Name="MI_MUTE"      Header="MU_TE"       Click="IMUTE_Click"/>
+                    <MenuItem x:Name="MI_MVOL_UP"   Header="VOL _+"     Click="MI_SL_UP_Click"/>
+                    <MenuItem x:Name="MI_MVOL_DN"   Header="VOL _-"     Click="MI_SL_DN_Click"/>
+                </ContextMenu>
+            </Grid.ContextMenu>
+            <!--Rectangle Fill="{x:Null}" Stroke="White" StrokeThickness="2" Height="380" VerticalAlignment="Bottom" Grid.RowSpan="2" /-->
+            <TextBox Text="[I] INPUT SELECT"  Margin="0,6,0,2.851"  Style="{StaticResource AudioTextBoxTemplate}" Width="290" Height="Auto" VerticalAlignment="Stretch" Focusable="False"/>
+            <Button x:Name="I1"    Content="IN1" Click="I_Click" Margin="0,0,220,295" Style="{StaticResource WhiteButtonTemplate}" Focusable="False" Grid.Row="1"/>
+            <Button x:Name="I2"    Content="IN2" Click="I_Click" Margin="0,0,150,295" Style="{StaticResource WhiteButtonTemplate}" Focusable="False" Grid.Row="1"/>
+            <Button x:Name="I3"    Content="IN3" Click="I_Click" Margin="0,0,80,295"  Style="{StaticResource WhiteButtonTemplate}" Focusable="False" Grid.Row="1"/>
+            <Button x:Name="I4"    Content="MIC" Click="I_Click" Margin="0,0,10,295"  Style="{StaticResource WhiteButtonTemplate}" RenderTransformOrigin="0.467,0.283" Focusable="False" Grid.Row="1"/>
+            <Button x:Name="IMUTE"  Margin="0,0,10,125" Click="IMUTE_Click" Style="{StaticResource PicButtonTemplate}" Focusable="False" Grid.Row="1">
+                <Image  Source="../img/MUTE.png" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+            </Button>
+            <Canvas Margin="0,0,115,0" Height="260" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Width="60" Grid.Row="1">
+                <TextBox x:Name="TMVOL"   Text="----"  Style="{StaticResource AudioTextBoxTemplate}" Canvas.Left="5" Focusable="False"/>
+                <Slider x:Name="MVOL"  ValueChanged="MVOL_ValueChanged" Maximum="13" Style="{StaticResource AudioSliderTemplate}" Canvas.Left="21" Canvas.Top="26" />
+                <TextBox Text="Volume [+/-]" Style="{StaticResource AudioTextBoxTemplate}" Canvas.Top="231" Canvas.Left="-26" Width="113" Focusable="False"/>
+            </Canvas>
+        </Grid>
+
+    </Grid>
+</Window>

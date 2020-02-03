@@ -1,0 +1,410 @@
+﻿<Window x:Class="EPC232.audio.gui.windows.AudioPlayer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EPC232.audio.gui.windows"
+        mc:Ignorable="d"
+        Title="Player" Height="435" Width="630" Background="Black" 
+        WindowState="Normal" WindowStyle="ThreeDBorderWindow"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        >
+
+    <Window.Resources>
+        <Style x:Key="LedTemplate" TargetType="Ellipse">
+            <Setter Property="Width" Value="15"/>
+            <Setter Property="Height" Value="15"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Fill" Value="Black"/>
+            <Setter Property="Stroke" Value="White"/>
+        </Style>
+        <Style x:Key="PicButtonTemplate" TargetType="Button">
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Wheat"/>
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="LightBlueButtonTemplate" TargetType="Button">
+            <Setter Property="Background" Value="LightBlue"/>
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="YellowButtonTemplate" TargetType="Button">
+            <Setter Property="Background" Value="Yellow"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="GreenButtonTemplate" TargetType="Button">
+            <Setter Property="Background" Value="Green"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="WhiteButtonTemplate" TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="BlueButtonTemplate" TargetType="Button">
+            <Setter Property="Background" Value="Blue"/>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="AudioTextBoxTemplate" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="26"/>
+        </Style>
+        <Style x:Key="AudioSliderTemplate" TargetType="Slider">
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="SmallChange" Value="1"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Orientation" Value="Vertical"/>
+            <Setter Property="Grid.Row" Value="1"/>
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Height" Value="200"/>
+            <Setter Property="Width" Value="18"/>
+        </Style>
+        <Style x:Key="BlackDataGridTemplate" TargetType="DataGrid">
+            <Setter Property="Background" Value="{x:Null}"/>
+            <!--
+            <Setter Property="AlternationCount" Value="1"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
+            -->
+        </Style>
+    </Window.Resources>
+
+    <!--PLAYER-->
+    <Grid x:Name="GridPlayer" HorizontalAlignment="Center" Width="600" VerticalAlignment="Center" Margin="10,10,10,0" >
+        <Grid.ContextMenu>
+            <ContextMenu x:Name="MenuPlayer">
+                <MenuItem x:Name="MP_PLAY"        Header="_Play/Pause"   Click="MP_Click" Focusable="False"/>
+                <MenuItem x:Name="MP_PENTER"      Header="_Enter"        Click="MP_Click" Focusable="False"/>
+                <MenuItem x:Name="MP_KEY0"        Header="_0"            Click="MP_Click" Focusable="False"/>
+                <MenuItem x:Name="MP_KEY1"        Header="_1"            Click="MP_Click" Focusable="False"/>
+                <MenuItem x:Name="MP_KEY2"        Header="_2"            Click="MP_Click" Focusable="False"/>
+                <MenuItem x:Name="MP_KEY3"        Header="_3"            Click="MP_Click" Focusable="False"/>
+                <MenuItem x:Name="MP_KEY4"        Header="_4"            Click="MP_Click" Focusable="False"/>
+                <MenuItem x:Name="MP_KEY5"        Header="_5"            Click="MP_Click" Focusable="False"/>
+                <MenuItem x:Name="MP_KEY6"        Header="_6"            Click="MP_Click" Focusable="False"/>
+                <MenuItem x:Name="MP_KEY7"        Header="_7"            Click="MP_Click" Focusable="False"/>
+                <MenuItem x:Name="MP_KEY8"        Header="_8"            Click="MP_Click" Focusable="False"/>
+                <MenuItem x:Name="MP_KEY9"        Header="_9"            Click="MP_Click" Focusable="False"/>
+            </ContextMenu>
+        </Grid.ContextMenu>
+        <!--Rectangle Fill="{x:Null}" Stroke="White" StrokeThickness="2" Margin="0,0,-10,0"/-->
+        <TextBox Text="[Y] PLAYER" Style="{StaticResource AudioTextBoxTemplate}" VerticalAlignment="Top" HorizontalAlignment="Center" Focusable="False" Width="90" Margin="256,-31,254,0"/>
+        <TextBox x:Name="COMPORT" Margin="0,0,335,150"  Style="{StaticResource AudioTextBoxTemplate}" Width="255" Foreground="Red" Focusable="False"/>
+        <Button x:Name="C1"    Content="IN1" Click="C_Click" Margin="0,0,530,295" Style="{StaticResource WhiteButtonTemplate}" Focusable="False"/>
+        <Button x:Name="C2"    Content="IN2" Click="C_Click" Margin="0,0,465,295" Style="{StaticResource WhiteButtonTemplate}" Focusable="False"/>
+        <Button x:Name="C3"    Content="IN3" Click="C_Click" Margin="0,0,400,295"  Style="{StaticResource WhiteButtonTemplate}" Focusable="False"/>
+
+        <Button x:Name="EJECT" Margin="0,0,400,193" Click="P_Click" Style="{StaticResource PicButtonTemplate}" Focusable="False">
+            <Image  Source="../img/EJECT.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.6" ScaleY="0.6"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <Button x:Name="MUTE"  Margin="0,0,335,193" Click="P_Click" Style="{StaticResource PicButtonTemplate}" Focusable="False">
+            <Image  Source="../img/MUTE.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+
+        <Button x:Name="PROG"   Content="PROG"   Margin="0,0,150,244"     Click="P_Click" Style="{StaticResource WhiteButtonTemplate}" Focusable="False"/>
+        <Button x:Name="RANDOM" Content="RANDOM" Margin="0,0,80,244"     Click="P_Click" Style="{StaticResource WhiteButtonTemplate}" Focusable="False"/>
+        <Button x:Name="REPEAT" Content="REPEAT" Margin="0,0,10,244"     Click="P_Click" Style="{StaticResource WhiteButtonTemplate}" Focusable="False"/>
+        <Button x:Name="FOLDER" Content="FOLDER" Margin="0,0,80,295"     Click="P_Click" Style="{StaticResource WhiteButtonTemplate}" Focusable="False"/>
+
+        <Button x:Name="KEY1"   Content="1"      Margin="0,0,150,178"    Click="P_Click" Style="{StaticResource LightBlueButtonTemplate}" Focusable="False"/>
+        <Button x:Name="KEY2"   Content="2"      Margin="0,0,80,178"    Click="P_Click" Style="{StaticResource LightBlueButtonTemplate}" Focusable="False"/>
+        <Button x:Name="KEY3"   Content="3"      Margin="0,0,10,178"     Click="P_Click" Style="{StaticResource LightBlueButtonTemplate}" Focusable="False"/>
+        <Button x:Name="KEY4"   Content="4"      Margin="0,0,150,122"    Click="P_Click" Style="{StaticResource LightBlueButtonTemplate}" Focusable="False"/>
+        <Button x:Name="KEY5"   Content="5"      Margin="0,0,80,122"    Click="P_Click" Style="{StaticResource LightBlueButtonTemplate}" Focusable="False"/>
+        <Button x:Name="KEY6"   Content="6"      Margin="0,0,10,122"     Click="P_Click" Style="{StaticResource LightBlueButtonTemplate}" Focusable="False"/>
+        <Button x:Name="KEY7"   Content="7"      Margin="0,0,150,66"    Click="P_Click" Style="{StaticResource LightBlueButtonTemplate}" Focusable="False"/>
+        <Button x:Name="KEY8"   Content="8"      Margin="0,0,80,66"    Click="P_Click" Style="{StaticResource LightBlueButtonTemplate}" Focusable="False"/>
+        <Button x:Name="KEY9"   Content="9"      Margin="0,0,10,66"     Click="P_Click" Style="{StaticResource LightBlueButtonTemplate}" Focusable="False"/>
+        <Button x:Name="KEY0"   Content="0"      Margin="0,0,80,10"    Click="P_Click" Style="{StaticResource LightBlueButtonTemplate}" Width="130" Focusable="False"/>
+
+        <Button x:Name="PLAY"  Margin="0,0,530,193" Click="P_Click" Style="{StaticResource PicButtonTemplate}" Focusable="False" Width="60">
+            <Image  Source="../img/PLAY.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.6" ScaleY="0.6"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <Button x:Name="STOP"  Margin="0,0,462,193" Click="P_Click" Style="{StaticResource PicButtonTemplate}" Focusable="False">
+            <Image  Source="../img/STOP.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.6" ScaleY="0.6"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <Button x:Name="REV"   Margin="0,0,465,244" Click="P_Click" Style="{StaticResource PicButtonTemplate}" Focusable="False" Width="57">
+            <Image  Source="../img/PREV.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.6" ScaleY="0.6"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <Button x:Name="PREV" Margin="0,0,527,244"  Click="P_Click" Style="{StaticResource PicButtonTemplate}" Focusable="False" >
+            <Image  Source="../img/REV.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.6" ScaleY="0.6"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <Button x:Name="FWD"  Margin="0,0,400,244" Click="P_Click" Style="{StaticResource PicButtonTemplate}" Focusable="False">
+            <Image  Source="../img/PREV.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.6" ScaleY="0.6"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <Button x:Name="NEXT" Margin="0,0,335,244" Click="P_Click" Style="{StaticResource PicButtonTemplate}" Focusable="False">
+            <Image  Source="../img/REV.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.6" ScaleY="0.6"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+
+
+        <Button x:Name="SOURCE"  Content="     CD&#xA;USB / SD" Margin="0,0,335,295"  Click="P_Click" Style="{StaticResource WhiteButtonTemplate}" Focusable="False"/>
+        <Button x:Name="BAND"    Content="BAND"                 Margin="0,0,527,92"   Click="P_Click" Style="{StaticResource WhiteButtonTemplate}" Focusable="False"/>
+        <Button x:Name="MEMORY"  Content="MEMORY"               Margin="0,0,150,295"  Click="P_Click" Style="{StaticResource WhiteButtonTemplate}" Focusable="False"/>
+        <Button x:Name="PENTER"  Content="ENTER"                Margin="0,0,10,10"   Click="P_Click"  Style="{StaticResource BlueButtonTemplate}" Focusable="False"/>
+
+        <TextBox Text="TUNING"  Margin="0,0,327,61"  Style="{StaticResource AudioTextBoxTemplate}" Width="133" Focusable="False"
+                 VerticalContentAlignment="Center"/>
+        <Button x:Name="TUNEUP"  Margin="0,0,335,10" Click="P_Click" Style="{StaticResource PicButtonTemplate}" Focusable="False">
+            <Image  Source="../img/UP.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.6" ScaleY="-0.6"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <Button x:Name="TUNEDN"  Margin="0,0,400,10" Click="P_Click" Style="{StaticResource PicButtonTemplate}" Focusable="False">
+            <Image  Source="../img/UP.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.6" ScaleY="0.6"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+
+        <TextBox Text="AUTO SCAN"  Margin="0,0,457,61"  Style="{StaticResource AudioTextBoxTemplate}" Width="130" 
+                 RenderTransformOrigin="0.344,0.385" Focusable="False" VerticalContentAlignment="Center"/>
+        <Button  x:Name="PPLUS"  Margin="0,0,465,10" Click="P_Click" Style="{StaticResource PicButtonTemplate}" Focusable="False">
+            <Image  Source="../img/PLUS.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.6" ScaleY="-0.6"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <Button x:Name="PMINUS"  Margin="0,0,530,10" Click="P_Click" Style="{StaticResource PicButtonTemplate}" VerticalAlignment="Bottom" Height="46" Focusable="False">
+            <Image  Source="../img/MINUS.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.6" ScaleY="0.6"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+
+    </Grid>
+
+</Window>

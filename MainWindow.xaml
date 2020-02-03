@@ -1,0 +1,614 @@
+﻿<Window x:Class="EPC232.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="" Width="1200" Height="900" WindowStartupLocation="CenterScreen" IsTabStop="False" ResizeMode="CanResize" 
+        Loaded="MainWindow_OnLoaded"
+        Background="Black" Icon="img/EPC232_ICON.ico" WindowStyle="ThreeDBorderWindow" WindowState="Normal">
+    <Window.Resources>
+        <Style x:Key="LedTemplate" TargetType="Ellipse">
+            <Setter Property="Width" Value="15"/>
+            <Setter Property="Height" Value="15"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Fill" Value="Black"/>
+            <Setter Property="Stroke" Value="White"/>
+        </Style>
+        <Style x:Key="PicButtonTemplate" TargetType="Button">
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Wheat"/>
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="LightBlueButtonTemplate" TargetType="Button">
+            <Setter Property="Background" Value="LightBlue"/>
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="YellowButtonTemplate" TargetType="Button">
+            <Setter Property="Background" Value="Yellow"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="DarkGoldenrod"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="RedButtonTemplate" TargetType="Button">
+            <Setter Property="Background" Value="Red"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="46"/>
+            <!--Setter Property="HorizontalAlignment" Value="Center"/-->
+            <!--Setter Property="VerticalAlignment" Value="Bottom"/-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Brown"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="GreenButtonTemplate" TargetType="Button">
+            <Setter Property="Background" Value="Green"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="DarkGreen"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="WhiteButtonTemplate" TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="BlueButtonTemplate" TargetType="Button">
+            <Setter Property="Background" Value="Blue"/>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="AudioTextBoxTemplate" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="26"/>
+        </Style>
+        <Style x:Key="AudioSliderTemplate" TargetType="Slider">
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="SmallChange" Value="1"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Orientation" Value="Vertical"/>
+            <Setter Property="Grid.Row" Value="1"/>
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Height" Value="200"/>
+            <Setter Property="Width" Value="18"/>
+        </Style>
+        <Style x:Key="BlackDataGridTemplate" TargetType="DataGrid">
+            <Setter Property="Background" Value="{x:Null}"/>
+            <!--
+            <Setter Property="AlternationCount" Value="1"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
+            -->
+        </Style>
+    </Window.Resources>
+
+    <Grid x:Name="Main" KeyDown="Main_KeyDown">
+        <Viewbox>
+            <StackPanel>
+                <Grid Background="Black" Width="1200" Height="900">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <!--General Data -->
+                    <TextBox x:Name="Version"  Text=""    Margin="10,35,801,0"  Style="{StaticResource AudioTextBoxTemplate}" 
+                             Width="Auto" Height="95" HorizontalAlignment="Stretch" FontSize="16" VerticalAlignment="Top"/>
+                    <!-- <TextBox x:Name="devices"  Text="" TextAlignment="Left"    Margin="37,0,932,762"  
+                    Style="{StaticResource AudioTextBoxTemplate}" Width="Auto" Height="26" HorizontalAlignment="Stretch"/>-->
+
+
+                    <DataGrid x:Name="gridDevices" Margin="25,190,791,0"  RowHeaderWidth="0" 
+                              Style="{StaticResource BlackDataGridTemplate}" 
+                              HorizontalScrollBarVisibility="Disabled" 
+                              VerticalScrollBarVisibility="Disabled" 
+                              Height="68" VerticalAlignment="Top" 
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="False">
+                        <DataGrid.ContextMenu >
+                            <ContextMenu IsEnabled="True" ContextMenuService.ShowOnDisabled="True">
+                                <MenuItem x:Name="Connect" Header="Set Default" Click="Connect_Click"/>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="IP address" Binding="{Binding IpAddress}"   IsReadOnly="True"   
+                                                Width="100" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="MAC"        Binding="{Binding MacAddress}"  IsReadOnly="True"   
+                                                Width="120" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Bios Name"  Binding="{Binding Name}"        IsReadOnly="True"   
+                                                Width="80"  ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Port"       Binding="{Binding MasterPort}"  IsReadOnly="True"   
+                                                Width="80"  ClipboardContentBinding="{x:Null}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <DataGrid x:Name="commandslogs"  Style="{StaticResource BlackDataGridTemplate}" AutoGenerateColumns="False"  
+                              Grid.Row="0" Margin="10,194,801,400" Background="{x:Null}" Visibility="Hidden" Panel.ZIndex="1">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="#"          Binding="{Binding Id}"                                        
+                                                IsReadOnly="True"   Width="50"     ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Time"       Binding="{Binding Time, StringFormat=\{0:ss\}.\{0:fffffff\}}" 
+                                                IsReadOnly="True"   Width="80"     ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Command"    Binding="{Binding Cmd}"                                       
+                                                IsReadOnly="True"   Width="100"    ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Answer"     Binding="{Binding Answer}"                                    
+                                                IsReadOnly="True"   Width="150"    ClipboardContentBinding="{x:Null}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <!--Close button marked as hidden due to lost necessity after the program solution
+                    transitioned into windowed mode-->
+                    <Button x:Name="close" Content="X" Visibility="Hidden" Click="close_Click"  
+                            Style="{StaticResource WhiteButtonTemplate}" VerticalAlignment="Top" Grid.Row="0" Margin="0,10,25,0"/>
+
+                    <Ellipse x:Name="LEDConnection"  Margin="0,0,1153,715"  Style="{StaticResource LedTemplate}" Width="22" 
+                             RenderTransformOrigin="-0.708,0.8" Height="22"/>
+
+                    <!--GAME-->
+                    <Grid x:Name="GridGame" Grid.Row="0" Margin="25,263,25,40">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="386*"/>
+                            <ColumnDefinition Width="387*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.ContextMenu>
+                            <ContextMenu x:Name="MenuGame">
+                                <MenuItem x:Name="MG_START"     Header="_START/STOP"     Click="MG_Click" Focusable="False"/>
+                                <MenuItem x:Name="MG_HSCORE"    Header="_HOME SCORE"     Click="MG_Click" Focusable="False"/>
+                                <MenuItem x:Name="MG_GSCORE"    Header="_GUESTS SCORE"   Click="MG_Click" Focusable="False"/>
+                                <MenuItem x:Name="MG_PERIOD"    Header="P_ERIOD"   Click="MG_Click" Focusable="False"/>
+                            </ContextMenu>
+                        </Grid.ContextMenu>
+                        <Rectangle Fill="{x:Null}" Stroke="White" StrokeThickness="2" Grid.ColumnSpan="2" />
+
+                        <!--Time/period/action time grid-->
+                        <Grid x:Name="timePeriodGrid" Grid.ColumnSpan="2" Width="420" Height="300" VerticalAlignment="Top"
+                              HorizontalAlignment="Center">
+                            <TextBox x:Name="txtGameTime"  Margin="0,15,0,0"  Style="{StaticResource AudioTextBoxTemplate}" 
+                                 Height="90" Width="400" FontSize="58" VerticalAlignment="Top" Focusable="False" 
+                                 HorizontalAlignment="Center" Grid.ColumnSpan="2" Foreground="#FFFFC500" FontStyle="Italic" 
+                                     FontWeight="Bold"/>
+                            <TextBox x:Name="txtGamePeriod"  Margin="0,10,0,0"  Style="{StaticResource AudioTextBoxTemplate}"   
+                                 Height="70" Width="75" FontSize="40" VerticalAlignment="Center" Focusable="False" 
+                                 HorizontalAlignment="Center" Grid.ColumnSpan="2" Foreground="Red"/>
+                            <Label x:Name="lblPossessionGuests" Content="&gt;" Grid.Column="1" HorizontalAlignment="Right" 
+                               Height="89" Margin="0,0,0,50" VerticalAlignment="Bottom" Width="35" FontSize="48" Foreground="White"/>
+                            <Label x:Name="lblPossessionHome" Content="&lt;" Height="89" Margin="0,0,0,50" VerticalAlignment="Bottom" 
+                               FontSize="48" Foreground="White" HorizontalAlignment="Left" Width="35"/>
+                            <TextBox x:Name="txtAttackTime" Style="{StaticResource AudioTextBoxTemplate}" Height="90" Width="100"
+                                 Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="54" 
+                                     Foreground="#FFFF9F15" FontWeight="Bold" FontStyle="Italic"></TextBox>
+                        </Grid>
+
+                        <TextBox x:Name="lblScoreHome" Text="HOME" Margin="170,0,0,535"  Style="{StaticResource AudioTextBoxTemplate}" 
+                                 Width="72" Focusable="False" Height="26" HorizontalAlignment="Left" FontSize="20"/>
+                        <TextBox x:Name="lblScoreGuests" Text="GUESTS" Margin="0,31,204,0"  Style="{StaticResource AudioTextBoxTemplate}" 
+                                 Width="78" Focusable="False" Height="31" Grid.Column="1" VerticalAlignment="Top" FontSize="20"/>
+                        <TextBox x:Name="txtGHScore"  Margin="170,67,0,0"  Style="{StaticResource AudioTextBoxTemplate}"   
+                                 Height="60" Width="72" FontSize="36" VerticalAlignment="Top" Focusable="False" 
+                                 HorizontalAlignment="Left" Foreground="#FFFFC500" FontWeight="Bold"/>
+                        <TextBox x:Name="txtGGScore"  Margin="0,0,204,468"  Style="{StaticResource AudioTextBoxTemplate}"   
+                                 Height="62" Width="72" FontSize="36" VerticalAlignment="Bottom" Focusable="False" Grid.Column="1" 
+                                 Foreground="#FFFFC500" FontWeight="Bold"/>
+
+                        <!--GAME MODE LABELS-->
+                        <TextBox x:Name="lblGameMode" Height="30" Margin="520,0,520,260" 
+                                 TextWrapping="Wrap" Text="Game mode:" VerticalAlignment="Bottom" 
+                                 IsReadOnly="True" Foreground="White" Background="Black" BorderBrush="{x:Null}" 
+                                 TextAlignment="Center" Focusable="False" FontSize="18" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="txtGameMode" Height="30" Margin="475,0,475,225" Width="200"
+                                 TextWrapping="Wrap" Text="   " VerticalAlignment="Bottom" Background="Black" 
+                                 Foreground="White" BorderBrush="{x:Null}" FontSize="22" IsReadOnly="True" TextAlignment="Center" 
+                                 FontWeight="Bold" Grid.ColumnSpan="2"/>
+
+                        <!--PENALTY/FOUL-->
+                        <Grid x:Name="foulPenaltyBox" Width="240" Height="90" Margin="25,0,0,330" VerticalAlignment="Bottom" 
+                              HorizontalAlignment="Left">
+                            <Rectangle Fill="{x:Null}" Stroke="White" StrokeThickness="2" Grid.ColumnSpan="2" />
+                            <TextBox x:Name="lblPenalty"  Text="PENALTY" Margin="0,0,0,30" HorizontalAlignment="Center" 
+                                     Height="24" TextWrapping="Wrap" Width="66" Foreground="White" Background="Black" 
+                                     BorderBrush="{x:Null}" IsReadOnly="True" TextAlignment="Center" FontSize="14" 
+                                     VerticalAlignment="Bottom"/>
+                            <TextBox Text="HOME"    Margin="10,0,0,60"  Style="{StaticResource AudioTextBoxTemplate}" 
+                                     Width="60" Focusable="False" Height="19" HorizontalAlignment="Left"/>
+                            <TextBox Text="GUESTS"    Margin="170,0,0,60"  Style="{StaticResource AudioTextBoxTemplate}" 
+                                     Width="60" Focusable="False" Height="19" HorizontalAlignment="Left"/>
+                            <Button x:Name="HFOUL" Content="FOUL" Margin="10,0,0,10" Click="G_Click" 
+                                    Style="{StaticResource WhiteButtonTemplate}" HorizontalAlignment="Left"/>
+                            <Button x:Name="GFOUL" Content="FOUL" Margin="170,0,0,10" Click="G_Click" 
+                                    Style="{StaticResource BlueButtonTemplate}" HorizontalAlignment="Left"/>
+                        </Grid>
+
+                        <!--ACTION TIME-->
+                        <Grid x:Name="actionTime" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                              Height="160" Width="240" Margin="25,0,0,20">
+                            <!--Rectangle Stroke="White" Fill="{x:Null}" StrokeThickness="2"></-->
+                            <Button x:Name="startStopAT" Content="START/STOP" Height="45" Width="130" Margin="0,0,0,0"
+                                    VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="14" Click="G_Click"
+                                    Style="{StaticResource GreenButtonTemplate}"></Button>
+                            <Button x:Name="resetAT" Content="RESET" Height="45" Width="130" Margin="0,0,0,0"
+                                    VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" Click="G_Click"
+                                    Style="{StaticResource RedButtonTemplate}"></Button>
+                            <Button x:Name="resetAT14" Content="RESET 14" Height="45" Width="130" Margin="0,0,0,0"
+                                    VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="14" Click="G_Click"
+                                    Style="{StaticResource RedButtonTemplate}"></Button>
+                        </Grid>
+
+                        <!--EDIT-->
+                        <Grid x:Name="editGrid" Width="240" Height="115" Margin="25,0,0,200" VerticalAlignment="Bottom" 
+                              HorizontalAlignment="Left">
+                            <Rectangle Fill="{x:Null}" Stroke="White" StrokeThickness="2" Grid.ColumnSpan="2" />
+                            <Ellipse x:Name="LedEdit"  Margin="0,0,75,77"  Style="{StaticResource LedTemplate}" 
+                                     HorizontalAlignment="Right"/>
+                            <Ellipse x:Name="LedUp"    Margin="0,0,75,41"  Style="{StaticResource LedTemplate}" 
+                                     HorizontalAlignment="Right"/>
+                            <Ellipse x:Name="LedDown"  Margin="0,0,75,10"  Style="{StaticResource LedTemplate}" 
+                                     HorizontalAlignment="Right"/>
+
+                            <Button x:Name="EDIT"    Content="EDIT"             Margin="85,0,0,62"     Click="G_Click" 
+                                    Style="{StaticResource YellowButtonTemplate}" Focusable="False" HorizontalAlignment="Left"
+                                    FontSize="14"/>
+                            <Button x:Name="UPDOWN"  Content="   UP/ &#xA;DOWN" Margin="85,0,0,10"     Click="G_Click" 
+                                    Style="{StaticResource YellowButtonTemplate}" Focusable="False" HorizontalAlignment="Left"
+                                    FontSize="14"/>
+                            <Button x:Name="MINUITS" Content="MIN"              Margin="10,0,0,10"     Click="G_Click" 
+                                    Style="{StaticResource YellowButtonTemplate}" Focusable="False" HorizontalAlignment="Left"
+                                    FontSize="14"/>
+                            <Button x:Name="SECONDS" Content="SEC"              Margin="0,0,10,10"    Click="G_Click" 
+                                    Style="{StaticResource YellowButtonTemplate}" Focusable="False" HorizontalAlignment="Right" 
+                                    Width="60" FontSize="14"/>
+                        </Grid>
+
+                        <!--CONSOLE-->
+                        <Grid x:Name="consoleGrid" Height="200" Width="250"  HorizontalAlignment="Center" Margin="0,0,0,20" 
+                              VerticalAlignment="Bottom" Grid.ColumnSpan="2">
+                            <Ellipse x:Name="LedStartTime"  Margin="115,75,115,105"  Style="{StaticResource LedTemplate}" 
+                                     Width="Auto" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+                            <Button x:Name="ENTER"   Content="ENTER"            Margin="0,0,20,10"    Click="G_Click" 
+                                    Style="{StaticResource GreenButtonTemplate}" Focusable="False" Width="58" Grid.Column="1" 
+                                    HorizontalAlignment="Right" FontSize="14"/>
+                            <Button x:Name="EXIT"    Content="EXIT"             Margin="20,0,0,10"    Click="G_Click" 
+                                    Style="{StaticResource WhiteButtonTemplate}" Focusable="False" HorizontalAlignment="Left"
+                                    FontSize="14"/>
+
+                            <!--Up/down-->
+                            <Button x:Name="AROW_UP"  Click="G_Click" Margin="100,20,100,0" Style="{StaticResource PicButtonTemplate}" 
+                                    Focusable="False" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Top" >
+                                <Image  Source="img/KEY-UP.png" RenderTransformOrigin="0.5,0.5">
+                                    <Image.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Image.RenderTransform>
+                                </Image>
+                            </Button>
+                            <Button x:Name="AROW_DN"  Click="G_Click" Margin="102,102,102,0" Style="{StaticResource PicButtonTemplate}" 
+                                    Focusable="False" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Top"  >
+                                <Image   Source="img/KEY-UP.png" RenderTransformOrigin="0.5,0.5">
+                                    <Image.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="-1" ScaleY="-1"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Image.RenderTransform>
+                                </Image>
+                            </Button>
+                            <!--Left/right-->
+                            <Button x:Name="AROW_RT"  Click="G_Click" Margin="0,62,60,0" Style="{StaticResource PicButtonTemplate}" 
+                                    Focusable="False" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top"  >
+                                <Image   Source="img/KEY-UP.png" RenderTransformOrigin="0.5,0.5">
+                                    <Image.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="-1" ScaleY="-1"/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="-90"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Image.RenderTransform>
+                                </Image>
+                            </Button>
+                            <Button x:Name="AROW_LT"  Click="G_Click" Margin="60,62,0,0" Style="{StaticResource PicButtonTemplate}" 
+                                    Focusable="False" Width="51"  HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <Image   Source="img/KEY-UP.png" RenderTransformOrigin="0.5,0.5">
+                                    <Image.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="-1" ScaleY="-1"/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="90"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Image.RenderTransform>
+                                </Image>
+                            </Button>
+                        </Grid>
+
+                        <!--Start/period buttons-->
+                        <Grid x:Name="consoleGame" Grid.Column="1" Width="160" Height="160" Margin="0,0,25,20"
+                              VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                            <Button x:Name="START"   Content="START"            Margin="0,0,0,0"     Click="G_Click" 
+                                Style="{StaticResource GreenButtonTemplate}" Width="130" Focusable="False" Grid.Column="1" 
+                                HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
+
+                            <Button x:Name="PERIOD"  Content="PERIOD"           Margin="0,0,0,0"     Click="G_Click" 
+                                Style="{StaticResource YellowButtonTemplate}" Width="130" Focusable="False" Grid.Column="1" 
+                                HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14"/>
+
+                            <Button x:Name="ALARM"   Content="ALARM"            Margin="0,0,0,0"    Click="G_Click"
+                                    Style="{StaticResource RedButtonTemplate}" Width="130" Focusable="False" 
+                                    HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="14"/>
+                        </Grid>
+                        
+
+                        <!--HOME/GUESTS-->
+                        <Grid x:Name="homeGuestGrid" Margin="0,25,25,0" HorizontalAlignment="Right" Width="160" Height="187" 
+                              VerticalAlignment="Top" 
+                              Grid.Column="1">
+                            <Rectangle Fill="{x:Null}" Stroke="White" StrokeThickness="2"/>
+                            <TextBox Text="HOME"    Margin="10,0,0,161"  Style="{StaticResource AudioTextBoxTemplate}" 
+                                     Focusable="False" Width="65" Height="21" HorizontalAlignment="Left" FontSize="14"/>
+                            <TextBox Text="GUESTS"  Margin="0,0,10,161"   Style="{StaticResource AudioTextBoxTemplate}" 
+                                     Focusable="False" Width="65" Height="21" FontSize="14"/>
+                            <Button x:Name="HSCORE" Content="SCORE" Width="65" Margin="10,0,0,8" Click="G_Click" 
+                                    Style="{StaticResource WhiteButtonTemplate}" Focusable="False" FontSize="14" 
+                                    HorizontalAlignment="Left"/>
+                            <Button x:Name="GSCORE" Content="SCORE" Margin="0,0,10,8" Click="G_Click" FontSize="14"
+                                    Style="{StaticResource BlueButtonTemplate}" Width="65" Focusable="False" Foreground="White"/>
+                            <Button x:Name="HTIMEOUT" Content="TIMEOUT" Margin="10,0,0,110" Click="G_Click" 
+                                    Style="{StaticResource WhiteButtonTemplate}" Width="65" Focusable="False" AllowDrop="True" 
+                                    Height="46" VerticalAlignment="Bottom" FontSize="14" HorizontalAlignment="Left"/>
+                            <Button x:Name="HBONUS" Content="BONUS" Width="65" Margin="10,0,0,59" Click="G_Click" 
+                                    Style="{StaticResource WhiteButtonTemplate}" Focusable="False" FontSize="14" 
+                                    HorizontalAlignment="Left"/>
+                            <Button x:Name="GTIMEOUT" Content="TIMEOUT" Width="65" Margin="0,0,10,110" Click="G_Click" 
+                                    Style="{StaticResource BlueButtonTemplate}" Focusable="False" Foreground="White" FontSize="14"/>
+                            <Button x:Name="GBONUS" Content="BONUS" Width="65" Margin="0,0,10,59" Click="G_Click" 
+                                    Style="{StaticResource BlueButtonTemplate}" Focusable="False" Foreground="White" 
+                                    VerticalAlignment="Bottom" Height="46" FontSize="14"/>
+
+                        </Grid>
+
+                        <!--Basketball +2/+3 score grid-->
+                        <Grid x:Name="gridBasketballScore" Margin="0,225,25,0" HorizontalAlignment="Right" Width="160" Height="110" 
+                              VerticalAlignment="Top" Grid.Column="1">
+                            <Rectangle Fill="{x:Null}" Stroke="White" StrokeThickness="2"/>
+                            <Button x:Name="HSCORE_2" Content="+2" Margin="10,0,0,59" Click="G_Click" Width="65" FontSize="14"
+                                    Style="{StaticResource WhiteButtonTemplate}" Focusable="False" HorizontalAlignment="Left"/>
+                            <Button x:Name="GSCORE_2" Content="+2"  Margin="0,0,10,59" Click="G_Click" Width="65" FontSize="14"
+                                    Style="{StaticResource BlueButtonTemplate}" Focusable="False" Foreground="White"/>
+                            <Button x:Name="HSCORE_3" Content="+3" Margin="10,0,0,8" Click="G_Click" Width="65" FontSize="14"
+                                    Style="{StaticResource WhiteButtonTemplate}" Focusable="False" HorizontalAlignment="Left"/>
+                            <Button x:Name="GSCORE_3" Content="+3"  Margin="0,0,10,8" Click="G_Click" Width="65" FontSize="14"
+                                    Style="{StaticResource BlueButtonTemplate}" Focusable="False" Foreground="White"/>
+                        </Grid>
+
+
+                        <Ellipse x:Name="LedGTimeout2" HorizontalAlignment="Right" Height="21" Margin="0,134,231,0" 
+                                 VerticalAlignment="Top" Width="21" Stroke="White" Grid.Column="1"/>
+                        <Ellipse x:Name="LedGTimeout1" HorizontalAlignment="Right" Height="21" Margin="0,134,257,442" 
+                                 VerticalAlignment="Center" Width="21" RenderTransformOrigin="-1.222,0.722" Stroke="White" 
+                                 Grid.Column="1"/>
+                        <Ellipse x:Name="LedGTimeout3" HorizontalAlignment="Right" Height="21" Margin="0,134,205,0" 
+                                 VerticalAlignment="Top" Width="21" RenderTransformOrigin="2.944,1.5" Stroke="White" Grid.Column="1"/>
+                        <Ellipse x:Name="LedHTimeout1" HorizontalAlignment="Left" Height="21" Margin="170,134,0,442" 
+                                 VerticalAlignment="Center" Width="21" RenderTransformOrigin="-1.222,0.722" Stroke="White"/>
+                        <Ellipse x:Name="LedHTimeout2" HorizontalAlignment="Left" Height="21" Margin="196,134,0,442" 
+                                 VerticalAlignment="Center" Width="21" RenderTransformOrigin="-1.222,0.722" Stroke="White"/>
+                        <Ellipse x:Name="LedHTimeout3" HorizontalAlignment="Left" Height="21" Margin="222,134,0,442" 
+                                 VerticalAlignment="Center" Width="21" RenderTransformOrigin="-1.222,0.722" Stroke="White"/>
+                        <TextBox x:Name="TextTO" HorizontalAlignment="Left" Height="21" Margin="140,134,0,0" TextWrapping="Wrap" 
+                                 Text="TO" VerticalAlignment="Top" Width="25" Background="Black" IsReadOnly="True" 
+                                 BorderBrush="{x:Null}" Foreground="White" FontSize="14"/>
+                        <TextBox x:Name="TextTO1" Height="21" Margin="0,134,283,0" TextWrapping="Wrap" Text="TO" 
+                                 VerticalAlignment="Top" Background="Black" IsReadOnly="True" BorderBrush="{x:Null}" 
+                                 Foreground="White" FontSize="14" Grid.Column="1" HorizontalAlignment="Right" Width="28"/>
+                        <TextBox x:Name="txtGBonus" HorizontalAlignment="Left" Height="43" Margin="254,86,0,0" TextWrapping="Wrap" 
+                                 VerticalAlignment="Top" Width="41" Foreground="White" Background="Black" BorderBrush="{x:Null}" 
+                                 IsReadOnly="True" TextAlignment="Center" FontSize="24" Grid.Column="1"/>
+                        <TextBox x:Name="txtHBonus" HorizontalAlignment="Left" Height="43" Margin="124,86,0,0" TextWrapping="Wrap" 
+                                 VerticalAlignment="Top" Width="41" Foreground="White" Background="Black" BorderBrush="{x:Null}" 
+                                 IsReadOnly="True" TextAlignment="Center" FontSize="24"/>
+                        <TextBox x:Name="lblBonusH" HorizontalAlignment="Left" Height="18" Margin="108,63,0,0" TextWrapping="Wrap" 
+                                 Text="BONUS" VerticalAlignment="Top" Width="57" Background="Black" IsReadOnly="True" 
+                                 BorderBrush="{x:Null}" Foreground="White" FontSize="14" TextAlignment="Center"/>
+                        <TextBox x:Name="lblBonusG" HorizontalAlignment="Left" Height="18" Margin="240,63,0,0" TextWrapping="Wrap" 
+                                 Text="BONUS" VerticalAlignment="Top" Width="54" Background="Black" IsReadOnly="True" 
+                                 BorderBrush="{x:Null}" Foreground="White" FontSize="14" Grid.Column="1"
+                                 TextAlignment="Center"/>
+
+                        <Button x:Name="TO_TIME_START"  Content="TO TIME START" Visibility="Hidden" Margin="0,0,140,10"     
+                                Click="G_Click" Style="{StaticResource YellowButtonTemplate}" Focusable="False" Width="60" 
+                                Grid.Column="1" HorizontalAlignment="Right" HorizontalContentAlignment="Center"/>
+                        <Button x:Name="LOAD" Visibility="Hidden" Content="LOAD" Click="G_Click" 
+                                Style="{StaticResource WhiteButtonTemplate}" VerticalAlignment="Top" 
+                                Grid.Row="0" Margin="355,334,356,0" Width="Auto" HorizontalAlignment="Stretch" Grid.ColumnSpan="2"/>
+
+                    </Grid>
+
+
+                    <!--RELAYS-->
+                    <Grid x:Name="GridRelay" HorizontalAlignment="Right" Margin="0,150,25,650" Width="184" Height="100" >
+                        <Grid.ContextMenu>
+                            <ContextMenu x:Name="MenuRelay">
+                                <MenuItem x:Name="MR_R1"    Header="RELAY_1"     Click="MR_Click" KeyDown="Main_KeyDown"/>
+                                <MenuItem x:Name="MR_R2"    Header="RELAY_2"     Click="MR_Click" KeyDown="Main_KeyDown"/>
+                            </ContextMenu>
+                        </Grid.ContextMenu>
+                        <Rectangle Fill="{x:Null}" Stroke="White" StrokeThickness="2"  />
+                        <TextBox Text="[R] RELAY"  Margin="0,0,0,56"  Style="{StaticResource AudioTextBoxTemplate}" Width="184" 
+                                 Height="37"/>
+                        <Ellipse x:Name="LedRLY1"  Margin="0,0,100,26"  Style="{StaticResource LedTemplate}" Width="14" 
+                                 Height="14" Fill="Black"/>
+                        <Ellipse x:Name="LedRLY2"  Margin="0,0,10,26"  Style="{StaticResource LedTemplate}" Width="14" 
+                                 Height="14" Fill="Black"/>
+                        <Button x:Name="R1"    Content="RELAY 1" Click="R_Click" Margin="0,0,114,10" 
+                                Style="{StaticResource WhiteButtonTemplate}" Focusable="False" />
+                        <Button x:Name="R2"    Content="RELAY 2" Click="R_Click" Margin="0,0,24,10" 
+                                Style="{StaticResource WhiteButtonTemplate}" Focusable="False"/>
+                    </Grid>
+
+                    <!--Addons-->
+                    <Image Height="130" Margin="455,50,452,0" VerticalAlignment="Top" Source="img/LOGO.png" Stretch="Fill"/>
+                    <Button x:Name="ecp" Content="ECP40" Click="ecp_Click" Style="{StaticResource BlueButtonTemplate}" 
+                            VerticalAlignment="Top" FontSize="14" Grid.Row="0" Margin="0,99,155,0"/>
+                    <Button x:Name="audio_settings" Content="Audio" Click="toggleAudio_Click" Style="{StaticResource BlueButtonTemplate}" 
+                            VerticalAlignment="Top" FontSize="14" Grid.Row="0" Margin="0,99,90,0"/>
+                    <Button x:Name="player" Content="Player" Click="togglePlayer_Click" Style="{StaticResource BlueButtonTemplate}" 
+                            VerticalAlignment="Top" FontSize="14" Grid.Row="0" Margin="0,99,25,0"/>
+
+                </Grid>
+            </StackPanel>
+        </Viewbox>
+
+    </Grid>
+</Window>

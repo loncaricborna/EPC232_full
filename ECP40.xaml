@@ -1,0 +1,120 @@
+﻿<Window x:Class="EPC232.ECP40"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ECP40" Height="370" Width="725" ResizeMode="NoResize" Closed="Window_Closed" WindowStyle="ToolWindow">
+    <Window.Resources>
+        <Style x:Key="RedButtonTemplate" TargetType="Button">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="20" Background="{TemplateBinding Background}" BorderBrush="White"  BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="LedTemplate" TargetType="Ellipse">
+            <Setter Property="Width" Value="15"/>
+            <Setter Property="Height" Value="15"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Fill" Value="Black"/>
+            <Setter Property="Stroke" Value="White"/>
+        </Style>
+
+
+    </Window.Resources>
+    <Grid Background="Black" x:Name="Main">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Ellipse x:Name="Connection"  Margin="6,6,0,0"  Style="{StaticResource LedTemplate}" Width="22" RenderTransformOrigin="-0.708,0.8" Height="22" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <Label Content="UTAKMICA" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Width="90" Margin="214,54,0,0" Height="26"/>
+        <Button x:Name="K10" Content="U"     Margin="288,47,0,0"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="TRENING 1" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Width="90" Margin="214,97,0,0" RenderTransformOrigin="0.489,0.481" Height="26"/>
+        <Button x:Name="K09" Content="T1"     Margin="288,90,0,0"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Content="TRENING 2" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Width="90" Margin="214,141,0,0" Height="26"/>
+        <Button x:Name="K08" Content="T2"     Margin="288,134,0,0"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" HorizontalAlignment="Left" VerticalAlignment="Top" />
+
+
+        <Label Content="PROGRAM 1" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Width="90" Margin="404,54,0,0" Height="26"/>
+        <Button x:Name="K05" Content="P1"     Margin="355,47,0,0"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Content="PROGRAM 2" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Width="90" Margin="404,97,0,0" RenderTransformOrigin="0.489,0.481" Height="26"/>
+        <Button x:Name="K06" Content="P2"     Margin="355,90,0,0"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Content="PROGRAM 3" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Width="90" Margin="404,141,0,0" Height="26"/>
+        <Button x:Name="K07" Content="P3"     Margin="355,134,0,0"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" HorizontalAlignment="Left" VerticalAlignment="Top" />
+
+
+
+
+        <Border Margin="20,20,0,0" BorderBrush="White" BorderThickness="1,1,1,1" CornerRadius="30,30,30,30" Height="122" VerticalAlignment="Top" HorizontalAlignment="Left" Width="169">
+            <Grid Margin="0,0,0,0" Width="170" Height="120" RenderTransformOrigin="0.494,0.517">
+                <Label Content="STUP 4 / +RO4" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Width="90" Margin="40,0,40,0"/>
+                <Button x:Name="K12" Content="4A"     Margin="61,0,66,54"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" HorizontalAlignment="Center" />
+                <Button x:Name="K13" Content="43"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" Margin="0,0,23,10" />
+                <Button x:Name="K14" Content="42"              Margin="0,0,68,10"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" />
+                <Button x:Name="K15" Content="41"              Margin="0,0,113,10"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" />
+            </Grid>
+        </Border>
+
+        <Border Margin="513,20,0,0" BorderBrush="White" BorderThickness="1,1,1,1" CornerRadius="30,30,30,30" HorizontalAlignment="Left" Width="169" Height="122" VerticalAlignment="Top">
+            <Grid Margin="0,0,0,0" Width="170" Height="120" RenderTransformOrigin="0.494,0.517">
+                <Label Content="STUP 3 / +RO3" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Width="90" Margin="40,0,40,0"/>
+                <Button x:Name="K00" Content="3A"     Margin="61,0,66,54"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" HorizontalAlignment="Center" />
+                <Button x:Name="K01" Content="33"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" Margin="0,0,23,10" />
+                <Button x:Name="K02" Content="32"              Margin="0,0,68,10"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" />
+                <Button x:Name="K03" Content="31"              Margin="0,0,113,10"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" />
+            </Grid>
+        </Border>
+
+        <Border Margin="513,194,0,0" BorderBrush="White" BorderThickness="1,1,1,1" CornerRadius="30,30,30,30" Height="122" VerticalAlignment="Top" HorizontalAlignment="Left" Width="169">
+            <Grid Margin="0,0,0,0" Width="170" Height="120" RenderTransformOrigin="0.494,0.517">
+                <Label Content="STUP 2 / +RO2" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Width="90" Margin="40,94,40,0"/>
+                <Button x:Name="K16" Content="2A"     Margin="62,0,68,20"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" HorizontalAlignment="Center" />
+                <Button x:Name="K17" Content="23"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" Margin="0,0,23,65" />
+                <Button x:Name="K18" Content="22"              Margin="0,0,68,65"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" />
+                <Button x:Name="K19" Content="21"              Margin="0,0,113,65"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" />
+            </Grid>
+        </Border>
+
+        <Border Margin="20,194,0,0" BorderBrush="White" BorderThickness="1,1,1,1" CornerRadius="30,30,30,30" Height="122" VerticalAlignment="Top" HorizontalAlignment="Left" Width="169">
+            <Grid Margin="0,0,0,0" Width="170" Height="120" RenderTransformOrigin="0.494,0.517">
+                <Label Content="STUP 1 / +RO1" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Width="90" Margin="38,94,42,0"/>
+                <Button x:Name="K28" Content="3A"     Margin="65,0,65,20"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" HorizontalAlignment="Center" />
+                <Button x:Name="K29" Content="33"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" Margin="0,0,20,64" />
+                <Button x:Name="K30" Content="32"              Margin="0,0,65,64"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" />
+                <Button x:Name="K31" Content="31"              Margin="0,0,110,64"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" RenderTransformOrigin="0.725,-0.517" />
+            </Grid>
+        </Border>
+
+
+        <Button x:Name="K32" Content="PLC"     Margin="607,147,0,0"     Click="G_Click" Style="{StaticResource RedButtonTemplate}" Focusable="False" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Content="- ISKLJUČENO" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Width="154" Margin="331,212,0,0" Height="26"/>
+        <Label Content="- PLC UPRAVLJANJE" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Width="154" Margin="331,238,0,0" RenderTransformOrigin="0.489,0.481" Height="26"/>
+        <Label Content=" - RUČNO UPRAVLJANJE" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Width="154" Margin="328,264,0,0" Height="26"/>
+        <Button x:Name="K23" Content="2"     Margin="314,269,0,0"     Style="{StaticResource RedButtonTemplate}" Focusable="False" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="21" />
+        <Button x:Name="K24" Content="1"     Margin="314,243,0,0"      Style="{StaticResource RedButtonTemplate}" Focusable="False" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="21" />
+        <Button x:Name="KXX" Content="0"     Margin="314,217,0,0"      Style="{StaticResource RedButtonTemplate}" Focusable="False" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="21" />
+
+    </Grid>
+</Window>

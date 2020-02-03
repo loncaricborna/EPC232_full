@@ -1,0 +1,51 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="EPC232.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="EPCAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.4.101</Value>
+    </Setting>
+    <Setting Name="EPCPort" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">60606</Value>
+    </Setting>
+    <Setting Name="LogsMaxCount" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+    <Setting Name="IN1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TUNER</Value>
+    </Setting>
+    <Setting Name="IN2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">IN2</Value>
+    </Setting>
+    <Setting Name="IN3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">IN3</Value>
+    </Setting>
+    <Setting Name="RELAY1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">AUDIO</Value>
+    </Setting>
+    <Setting Name="RELAY2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SEMAFOR</Value>
+    </Setting>
+    <Setting Name="IN1_COM" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="IN2_COM" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="IN3_COM" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="IsGongEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ECP40Address" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.4.128</Value>
+    </Setting>
+    <Setting Name="ECP40Port" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">60606</Value>
+    </Setting>
+    <Setting Name="ECP40IsActive" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
